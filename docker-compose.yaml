@@ -1,0 +1,12 @@
+services:
+  obs-server:
+    build: .
+    image: obs-server:latest
+    container_name: obs-server
+    restart: unless-stopped
+    ports:
+      - 7003:7003
+    working_dir: /app
+    environment:
+      - NODE_ENV=production
+    command: ['pnpm', 'start']
