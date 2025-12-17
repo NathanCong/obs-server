@@ -2,15 +2,25 @@ import type { Context } from 'koa';
 import cors from '@koa/cors';
 
 function getAllowOrigins() {
-  return process.env.ALLOW_ORIGINS?.split(',') || [];
+  const { ALLOW_ORIGINS } = process.env;
+  // 未设置返回空
+  if (!ALLOW_ORIGINS) {
+    return [];
+  }
+  // 已设置按照逗号分割
+  return ALLOW_ORIGINS.split(',');
 }
 
 export default () =>
   cors({
     origin(ctx: Context) {
       const allowOrigins = getAllowOrigins();
-      const requestOrigin = ctx.get('Origin');
+      // 默认允许所有源
+      if (allowOrigins.length < 1) {
+        return '*';
+      }
       // 请求源在白名单中
+      const requestOrigin = ctx.get('Origin');
       if (requestOrigin && allowOrigins.includes(requestOrigin)) {
         return requestOrigin;
       }
