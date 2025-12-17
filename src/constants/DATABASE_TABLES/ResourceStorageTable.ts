@@ -25,7 +25,22 @@ export default class ResourceStorageTable {
       isNotNull: true,
     },
     {
+      columnName: 'resource_name',
+      columnType: 'VARCHAR(100)',
+      isNotNull: true,
+    },
+    {
       columnName: 'resource_type',
+      columnType: 'VARCHAR(40)',
+      isNotNull: true,
+    },
+    {
+      columnName: 'resource_size',
+      columnType: 'BIGINT',
+      isNotNull: true,
+    },
+    {
+      columnName: 'resource_hash',
       columnType: 'VARCHAR(40)',
       isNotNull: true,
     },
@@ -37,11 +52,6 @@ export default class ResourceStorageTable {
     {
       columnName: 'resource_url',
       columnType: 'VARCHAR(512)',
-      isNotNull: true,
-    },
-    {
-      columnName: 'resource_md5',
-      columnType: 'VARCHAR(40)',
       isNotNull: true,
     },
     {
