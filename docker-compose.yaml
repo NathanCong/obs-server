@@ -7,7 +7,7 @@ services:
     ports:
       - 7003:7003
     volumes:
-      - ${VOLUME_OBS_PATH}:/mnt/obs
+      - ${VOLUME_OBS_PATH}:/app/volumes/obs
     working_dir: /app
     environment:
       - NODE_ENV=production

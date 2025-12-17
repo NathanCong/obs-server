@@ -17,7 +17,7 @@ const app = new Koa();
 // 应用中间件
 app.use(cors());
 app.use(body({ multipart: true, formidable: { hashAlgorithm: 'md5' } }));
-app.use(serve(join(process.cwd(), process.env.VOLUME_OBS_PATH || '')));
+app.use(serve(join(process.cwd(), process.env.OBS_PATH || '')));
 app.use(router.routes());
 app.use(router.allowedMethods());
 

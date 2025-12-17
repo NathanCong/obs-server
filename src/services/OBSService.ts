@@ -30,13 +30,13 @@ export default class OBSService {
    */
   static async upload(savePath: string, file: UploadFile) {
     const { filepath: tempPath, originalFilename, size, hash } = file;
-    const { VOLUME_OBS_PATH = '', OBS_PROTOCOL, OBS_HOST, OBS_PORT } = process.env;
+    const { OBS_PATH = '', OBS_PROTOCOL, OBS_HOST, OBS_PORT } = process.env;
     // 获取文件名称和类型
     const [fileName, fileType] = originalFilename.split('.');
     // 生成新的文件名
     const newFileName = createUuid();
     // 生成文件存储路径
-    const newSavePath = join(process.cwd(), VOLUME_OBS_PATH, savePath);
+    const newSavePath = join(process.cwd(), OBS_PATH, savePath);
     try {
       // 保存文件
       await this.saveFile(tempPath, newSavePath, `${newFileName}.${fileType}`);
