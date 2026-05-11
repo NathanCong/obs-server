@@ -14,5 +14,4 @@ services:
     working_dir: /app
     environment:
       - NODE_ENV=production
-      - PNPM_APPROVE_BUILDS=true
     command: ['pnpm', 'start']
