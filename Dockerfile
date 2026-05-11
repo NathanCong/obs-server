@@ -1,3 +1,6 @@
+# 接收构建参数
+ARG PNPM_APPROVE_BUILDS
+
 # 使用官方 Node.js 运行时作为基础镜像
 FROM node:22-alpine
 
