@@ -1,3 +1,6 @@
+# 接收构建参数
+ARG PNPM_APPROVE_BUILDS
+
 # 使用官方 Node.js 运行时作为基础镜像
 FROM node:22-alpine
 
@@ -8,7 +11,7 @@ WORKDIR /app
 COPY package.json pnpm-lock.yaml ./
 
 # 安装项目依赖
-RUN npm install -g pnpm && pnpm config set approve-builds true && pnpm install
+RUN npm install -g pnpm && pnpm install
 
 # 复制项目文件
 COPY . .

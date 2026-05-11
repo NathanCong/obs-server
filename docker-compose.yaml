@@ -1,6 +1,9 @@
 services:
   obs-server:
-    build: .
+    build:
+      context: .
+      args:
+        - PNPM_APPROVE_BUILDS=true
     image: obs-server:latest
     container_name: obs-server
     restart: unless-stopped
