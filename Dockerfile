@@ -8,7 +8,7 @@ WORKDIR /app
 COPY package.json pnpm-lock.yaml ./
 
 # 安装项目依赖
-RUN npm install -g pnpm && pnpm config set approve-builds true && pnpm install
+RUN npm install -g pnpm && pnpm install
 
 # 复制项目文件
 COPY . .
